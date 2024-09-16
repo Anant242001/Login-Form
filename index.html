@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form with Full-Screen Moving Background</title>
+    <style>
+        /* Basic page styling */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            overflow: hidden;
+            position: relative;
+            animation: moveBackground 10s linear infinite; /* Faster background movement */
+            background: url('https://wallpapertag.com/wallpaper/full/1/4/9/154268-vertical-lighting-background-2560x1600.jpg') center top;
+            background-size: cover; /* Ensures the image covers the full screen */
+        }
+
+        /* Keyframes for vertically moving background */
+        @keyframes moveBackground {
+            0% {
+                background-position: center top;
+            }
+            100% {
+                background-position: center bottom;
+            }
+        }
+
+        /* Slide-in animation for the form */
+        @keyframes slide-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-50%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form glowing lightning effect */
+        @keyframes lightning-border {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0);
+            }
+            20%, 60% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 50px rgba(255, 255, 255, 1), 0 0 100px rgba(255, 255, 255, 1);
+            }
+        }
+
+        /* Styling the login form */
+        .login-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #fff;
+            animation: lightning-border 3s infinite, slide-in 1s ease-out forwards;
+            color: #fff;
+        }
+
+        /* Form inputs and labels */
+        label {
+            color: #fff;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Submit button */
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f90;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Glowing effect on hover */
+        button:hover {
+            background-color: #ff6700;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Login Form</h2>
+        <form action="/submit" method="post">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
